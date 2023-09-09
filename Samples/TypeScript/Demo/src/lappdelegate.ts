@@ -1,8 +1,8 @@
 /**
- * Copyright(c) Live2D Inc. All rights reserved.
+ * 版权(c) Live2D公司，保留所有权利。
  *
- * Use of this source code is governed by the Live2D Open Software license
- * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
+ * 使用此源代码受Live2D开放软件许可协议的约束，
+ * 可在https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html找到。
  */
 
 import { CubismFramework, Option } from '@framework/live2dcubismframework';
@@ -19,15 +19,15 @@ export let gl: WebGLRenderingContext = null;
 export let frameBuffer: WebGLFramebuffer = null;
 
 /**
- * アプリケーションクラス。
- * Cubism SDKの管理を行う。
+ * 应用程序类。
+ * 管理Cubism SDK。
  */
 export class LAppDelegate {
   /**
-   * クラスのインスタンス（シングルトン）を返す。
-   * インスタンスが生成されていない場合は内部でインスタンスを生成する。
+   * 返回类的实例（单例）。
+   * 如果尚未创建实例，则内部会创建一个。
    *
-   * @return クラスのインスタンス
+   * @return 类的实例
    */
   public static getInstance(): LAppDelegate {
     if (s_instance == null) {
@@ -38,7 +38,7 @@ export class LAppDelegate {
   }
 
   /**
-   * クラスのインスタンス（シングルトン）を解放する。
+   * 释放类的实例（单例）。
    */
   public static releaseInstance(): void {
     if (s_instance != null) {
@@ -49,10 +49,10 @@ export class LAppDelegate {
   }
 
   /**
-   * APPに必要な物を初期化する。
+   * 初始化应用程序所需的内容。
    */
   public initialize(): boolean {
-    // キャンバスの作成
+    // 创建画布
     canvas = document.createElement('canvas');
     if (LAppDefine.CanvasSize === 'auto') {
       this._resizeCanvas();
@@ -61,72 +61,72 @@ export class LAppDelegate {
       canvas.height = LAppDefine.CanvasSize.height;
     }
 
-    // glコンテキストを初期化
+    // 初始化gl上下文
     // @ts-ignore
     gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
 
     if (!gl) {
-      alert('Cannot initialize WebGL. This browser does not support.');
+      alert('无法初始化WebGL。该浏览器不支持。');
       gl = null;
 
       document.body.innerHTML =
-        'This browser does not support the <code>&lt;canvas&gt;</code> element.';
+        '此浏览器不支持<code>&lt;canvas&gt;</code>元素。';
 
-      // gl初期化失敗
+      // 初始化gl失败
       return false;
     }
 
-    // キャンバスを DOM に追加
+    // 将画布添加到DOM
     document.body.appendChild(canvas);
 
     if (!frameBuffer) {
       frameBuffer = gl.getParameter(gl.FRAMEBUFFER_BINDING);
     }
 
-    // 透過設定
+    // 启用混合
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
     const supportTouch: boolean = 'ontouchend' in canvas;
 
     if (supportTouch) {
-      // タッチ関連コールバック関数登録
+      // 注册触摸事件回调函数
       canvas.ontouchstart = onTouchBegan;
       canvas.ontouchmove = onTouchMoved;
       canvas.ontouchend = onTouchEnded;
       canvas.ontouchcancel = onTouchCancel;
     } else {
-      // マウス関連コールバック関数登録
+      // 注册鼠标事件回调函数
       canvas.onmousedown = onClickBegan;
       canvas.onmousemove = onMouseMoved;
       canvas.onmouseup = onClickEnded;
     }
 
-    // AppViewの初期化
+    // 初始化AppView
     this._view.initialize();
 
-    // Cubism SDKの初期化
+    // 初始化Cubism SDK
     this.initializeCubism();
 
     return true;
   }
 
   /**
-   * Resize canvas and re-initialize view.
+   * 调整画布大小并重新初始化视图。
    */
   public onResize(): void {
     this._resizeCanvas();
     this._view.initialize();
     this._view.initializeSprite();
 
-    // キャンバスサイズを渡す
+    // 传递画布大小
     const viewport: number[] = [0, 0, canvas.width, canvas.height];
 
     gl.viewport(viewport[0], viewport[1], viewport[2], viewport[3]);
   }
 
   /**
-   * 解放する。
+   * 释放资源。
    */
   public release(): void {
     this._textureManager.release();
@@ -135,63 +135,63 @@ export class LAppDelegate {
     this._view.release();
     this._view = null;
 
-    // リソースを解放
+    // 释放资源
     LAppLive2DManager.releaseInstance();
 
-    // Cubism SDKの解放
+    // 释放Cubism SDK
     CubismFramework.dispose();
   }
 
   /**
-   * 実行処理。
+   * 运行应用程序。
    */
   public run(): void {
-    // メインループ
+    // 主循环
     const loop = (): void => {
-      // インスタンスの有無の確認
+      // 检查实例是否存在
       if (s_instance == null) {
         return;
       }
 
-      // 時間更新
+      // 更新时间
       LAppPal.updateTime();
 
-      // 画面の初期化
+      // 初始化屏幕
       gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
-      // 深度テストを有効化
+      // 启用深度测试
       gl.enable(gl.DEPTH_TEST);
 
-      // 近くにある物体は、遠くにある物体を覆い隠す
+      // 遮挡近处的对象
       gl.depthFunc(gl.LEQUAL);
 
-      // カラーバッファや深度バッファをクリアする
+      // 清除颜色缓冲区和深度缓冲区
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
       gl.clearDepth(1.0);
 
-      // 透過設定
+      // 启用混合
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
-      // 描画更新
+      // 渲染更新
       this._view.render();
 
-      // ループのために再帰呼び出し
+      // 递归调用以进行循环
       requestAnimationFrame(loop);
     };
     loop();
   }
 
   /**
-   * シェーダーを登録する。
+   * 创建着色器。
    */
   public createShader(): WebGLProgram {
-    // バーテックスシェーダーのコンパイル
+    // 编译顶点着色器
     const vertexShaderId = gl.createShader(gl.VERTEX_SHADER);
 
     if (vertexShaderId == null) {
-      LAppPal.printMessage('failed to create vertexShader');
+      LAppPal.printMessage('无法创建顶点着色器');
       return null;
     }
 
@@ -209,11 +209,11 @@ export class LAppDelegate {
     gl.shaderSource(vertexShaderId, vertexShader);
     gl.compileShader(vertexShaderId);
 
-    // フラグメントシェーダのコンパイル
+    // 编译片段着色器
     const fragmentShaderId = gl.createShader(gl.FRAGMENT_SHADER);
 
     if (fragmentShaderId == null) {
-      LAppPal.printMessage('failed to create fragmentShader');
+      LAppPal.printMessage('无法创建片段着色器');
       return null;
     }
 
@@ -229,7 +229,7 @@ export class LAppDelegate {
     gl.shaderSource(fragmentShaderId, fragmentShader);
     gl.compileShader(fragmentShaderId);
 
-    // プログラムオブジェクトの作成
+    // 创建程序对象
     const programId = gl.createProgram();
     gl.attachShader(programId, vertexShaderId);
     gl.attachShader(programId, fragmentShaderId);
@@ -237,7 +237,7 @@ export class LAppDelegate {
     gl.deleteShader(vertexShaderId);
     gl.deleteShader(fragmentShaderId);
 
-    // リンク
+    // 链接
     gl.linkProgram(programId);
 
     gl.useProgram(programId);
@@ -246,7 +246,7 @@ export class LAppDelegate {
   }
 
   /**
-   * View情報を取得する。
+   * 获取View信息。
    */
   public getView(): LAppView {
     return this._view;
@@ -257,7 +257,7 @@ export class LAppDelegate {
   }
 
   /**
-   * コンストラクタ
+   * 构造函数
    */
   constructor() {
     this._captured = false;
@@ -271,18 +271,18 @@ export class LAppDelegate {
   }
 
   /**
-   * Cubism SDKの初期化
+   * 初始化Cubism SDK
    */
   public initializeCubism(): void {
-    // setup cubism
+    // 设置Cubism
     this._cubismOption.logFunction = LAppPal.printMessage;
     this._cubismOption.loggingLevel = LAppDefine.CubismLoggingLevel;
     CubismFramework.startUp(this._cubismOption);
 
-    // initialize cubism
+    // 初始化Cubism
     CubismFramework.initialize();
 
-    // load model
+    // 加载模型
     LAppLive2DManager.getInstance();
 
     LAppPal.updateTime();
@@ -291,28 +291,28 @@ export class LAppDelegate {
   }
 
   /**
-   * Resize the canvas to fill the screen.
+   * 调整画布大小以填满屏幕。
    */
   private _resizeCanvas(): void {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
 
-  _cubismOption: Option; // Cubism SDK Option
-  _view: LAppView; // View情報
-  _captured: boolean; // クリックしているか
-  _mouseX: number; // マウスX座標
-  _mouseY: number; // マウスY座標
-  _isEnd: boolean; // APP終了しているか
-  _textureManager: LAppTextureManager; // テクスチャマネージャー
+  _cubismOption: Option; // Cubism SDK 选项
+  _view: LAppView; // 视图信息
+  _captured: boolean; // 是否点击
+  _mouseX: number; // 鼠标X坐标
+  _mouseY: number; // 鼠标Y坐标
+  _isEnd: boolean; // 是否结束APP
+  _textureManager: LAppTextureManager; // 纹理管理器
 }
 
 /**
- * クリックしたときに呼ばれる。
+ * 当点击时调用。
  */
 function onClickBegan(e: MouseEvent): void {
   if (!LAppDelegate.getInstance()._view) {
-    LAppPal.printMessage('view notfound');
+    LAppPal.printMessage('未找到视图');
     return;
   }
   LAppDelegate.getInstance()._captured = true;
@@ -324,7 +324,7 @@ function onClickBegan(e: MouseEvent): void {
 }
 
 /**
- * マウスポインタが動いたら呼ばれる。
+ * 当鼠标指针移动时调用。
  */
 function onMouseMoved(e: MouseEvent): void {
   if (!LAppDelegate.getInstance()._captured) {
@@ -332,7 +332,7 @@ function onMouseMoved(e: MouseEvent): void {
   }
 
   if (!LAppDelegate.getInstance()._view) {
-    LAppPal.printMessage('view notfound');
+    LAppPal.printMessage('未找到视图');
     return;
   }
 
@@ -344,12 +344,12 @@ function onMouseMoved(e: MouseEvent): void {
 }
 
 /**
- * クリックが終了したら呼ばれる。
+ * 当点击结束时调用。
  */
 function onClickEnded(e: MouseEvent): void {
   LAppDelegate.getInstance()._captured = false;
   if (!LAppDelegate.getInstance()._view) {
-    LAppPal.printMessage('view notfound');
+    LAppPal.printMessage('未找到视图');
     return;
   }
 
@@ -361,11 +361,11 @@ function onClickEnded(e: MouseEvent): void {
 }
 
 /**
- * タッチしたときに呼ばれる。
+ * 当触摸时调用。
  */
 function onTouchBegan(e: TouchEvent): void {
   if (!LAppDelegate.getInstance()._view) {
-    LAppPal.printMessage('view notfound');
+    LAppPal.printMessage('未找到视图');
     return;
   }
 
@@ -378,7 +378,7 @@ function onTouchBegan(e: TouchEvent): void {
 }
 
 /**
- * スワイプすると呼ばれる。
+ * 当滑动时调用。
  */
 function onTouchMoved(e: TouchEvent): void {
   if (!LAppDelegate.getInstance()._captured) {
@@ -386,7 +386,7 @@ function onTouchMoved(e: TouchEvent): void {
   }
 
   if (!LAppDelegate.getInstance()._view) {
-    LAppPal.printMessage('view notfound');
+    LAppPal.printMessage('未找到视图');
     return;
   }
 
@@ -399,13 +399,13 @@ function onTouchMoved(e: TouchEvent): void {
 }
 
 /**
- * タッチが終了したら呼ばれる。
+ * 当触摸结束时调用。
  */
 function onTouchEnded(e: TouchEvent): void {
   LAppDelegate.getInstance()._captured = false;
 
   if (!LAppDelegate.getInstance()._view) {
-    LAppPal.printMessage('view notfound');
+    LAppPal.printMessage('未找到视图');
     return;
   }
 
@@ -418,13 +418,13 @@ function onTouchEnded(e: TouchEvent): void {
 }
 
 /**
- * タッチがキャンセルされると呼ばれる。
+ * 当触摸被取消时调用。
  */
 function onTouchCancel(e: TouchEvent): void {
   LAppDelegate.getInstance()._captured = false;
 
   if (!LAppDelegate.getInstance()._view) {
-    LAppPal.printMessage('view notfound');
+    LAppPal.printMessage('未找到视图');
     return;
   }
 

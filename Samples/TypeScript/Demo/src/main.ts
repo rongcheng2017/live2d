@@ -1,18 +1,18 @@
 /**
- * Copyright(c) Live2D Inc. All rights reserved.
+ * 版权(c) Live2D Inc. 保留所有权利。
  *
- * Use of this source code is governed by the Live2D Open Software license
- * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
+ * 使用本源代码受Live2D开放软件许可证的约束，
+ * 该许可证可在https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html找到。
  */
 
 import { LAppDelegate } from './lappdelegate';
 import * as LAppDefine from './lappdefine';
 
 /**
- * ブラウザロード後の処理
+ * 浏览器加载后的处理
  */
 window.onload = (): void => {
-  // create the application instance
+  // 创建应用程序实例
   if (LAppDelegate.getInstance().initialize() == false) {
     return;
   }
@@ -21,12 +21,12 @@ window.onload = (): void => {
 };
 
 /**
- * 終了時の処理
+ * 关闭窗口时的处理
  */
 window.onbeforeunload = (): void => LAppDelegate.releaseInstance();
 
 /**
- * Process when changing screen size.
+ * 更改屏幕大小时的处理
  */
 window.onresize = () => {
   if (LAppDefine.CanvasSize === 'auto') {

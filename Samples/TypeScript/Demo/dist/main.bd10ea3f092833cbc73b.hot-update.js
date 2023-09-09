@@ -1,0 +1,66 @@
+"use strict";
+self["webpackHotUpdate"]("main",{
+
+/***/ "./src/lappdefine.ts":
+/*!***************************!*\
+  !*** ./src/lappdefine.ts ***!
+  \***************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RenderTargetHeight = exports.RenderTargetWidth = exports.CubismLoggingLevel = exports.DebugTouchLogEnable = exports.DebugLogEnable = exports.MOCConsistencyValidationEnable = exports.PriorityForce = exports.PriorityNormal = exports.PriorityIdle = exports.PriorityNone = exports.HitAreaNameBody = exports.HitAreaNameHead = exports.MotionGroupTapBody = exports.MotionGroupIdle = exports.ModelDirSize = exports.ModelDir = exports.PowerImageName = exports.GearImageName = exports.BackImageName = exports.ResourcesPath = exports.ViewLogicalMaxTop = exports.ViewLogicalMaxBottom = exports.ViewLogicalMaxRight = exports.ViewLogicalMaxLeft = exports.ViewLogicalTop = exports.ViewLogicalBottom = exports.ViewLogicalRight = exports.ViewLogicalLeft = exports.ViewMinScale = exports.ViewMaxScale = exports.ViewScale = exports.CanvasSize = void 0;
+var live2dcubismframework_1 = __webpack_require__(/*! @framework/live2dcubismframework */ "../../../Framework/src/live2dcubismframework.ts");
+exports.CanvasSize = 'auto';
+exports.ViewScale = 1.0;
+exports.ViewMaxScale = 2.0;
+exports.ViewMinScale = 0.8;
+exports.ViewLogicalLeft = -1.0;
+exports.ViewLogicalRight = 1.0;
+exports.ViewLogicalBottom = -1.0;
+exports.ViewLogicalTop = 1.0;
+exports.ViewLogicalMaxLeft = -2.0;
+exports.ViewLogicalMaxRight = 2.0;
+exports.ViewLogicalMaxBottom = -2.0;
+exports.ViewLogicalMaxTop = 2.0;
+exports.ResourcesPath = '../../Resources/';
+exports.BackImageName = 'back_class_normal.png';
+exports.GearImageName = 'icon_gear.png';
+exports.PowerImageName = 'CloseNormal.png';
+exports.ModelDir = [
+    'Haru',
+    'Hiyori',
+    'Mark',
+    'Natori',
+    'Rice',
+    'Mao'
+];
+exports.ModelDirSize = exports.ModelDir.length;
+exports.MotionGroupIdle = 'Idle';
+exports.MotionGroupTapBody = 'TapBody';
+exports.HitAreaNameHead = 'Head';
+exports.HitAreaNameBody = 'Body';
+exports.PriorityNone = 0;
+exports.PriorityIdle = 1;
+exports.PriorityNormal = 2;
+exports.PriorityForce = 3;
+exports.MOCConsistencyValidationEnable = true;
+exports.DebugLogEnable = true;
+exports.DebugTouchLogEnable = false;
+exports.CubismLoggingLevel = live2dcubismframework_1.LogLevel.LogLevel_Verbose;
+exports.RenderTargetWidth = 1900;
+exports.RenderTargetHeight = 1000;
+
+
+/***/ })
+
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ /* webpack/runtime/getFullHash */
+/******/ !function() {
+/******/ 	__webpack_require__.h = function() { return "401030c38f2a75b5fae8"; }
+/******/ }();
+/******/ 
+/******/ }
+);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5iZDEwZWEzZjA5MjgzM2NiYzczYi5ob3QtdXBkYXRlLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQU9BLDZJQUE0RDtBQU8vQyxrQkFBVSxHQUErQyxNQUFNLENBQUM7QUFHaEUsaUJBQVMsR0FBRyxHQUFHLENBQUM7QUFDaEIsb0JBQVksR0FBRyxHQUFHLENBQUM7QUFDbkIsb0JBQVksR0FBRyxHQUFHLENBQUM7QUFFbkIsdUJBQWUsR0FBRyxDQUFDLEdBQUcsQ0FBQztBQUN2Qix3QkFBZ0IsR0FBRyxHQUFHLENBQUM7QUFDdkIseUJBQWlCLEdBQUcsQ0FBQyxHQUFHLENBQUM7QUFDekIsc0JBQWMsR0FBRyxHQUFHLENBQUM7QUFFckIsMEJBQWtCLEdBQUcsQ0FBQyxHQUFHLENBQUM7QUFDMUIsMkJBQW1CLEdBQUcsR0FBRyxDQUFDO0FBQzFCLDRCQUFvQixHQUFHLENBQUMsR0FBRyxDQUFDO0FBQzVCLHlCQUFpQixHQUFHLEdBQUcsQ0FBQztBQUd4QixxQkFBYSxHQUFHLGtCQUFrQixDQUFDO0FBR25DLHFCQUFhLEdBQUcsdUJBQXVCLENBQUM7QUFHeEMscUJBQWEsR0FBRyxlQUFlLENBQUM7QUFHaEMsc0JBQWMsR0FBRyxpQkFBaUIsQ0FBQztBQUtuQyxnQkFBUSxHQUFhO0lBQ2hDLE1BQU07SUFDTixRQUFRO0lBQ1IsTUFBTTtJQUNOLFFBQVE7SUFDUixNQUFNO0lBQ04sS0FBSztDQUNOLENBQUM7QUFDVyxvQkFBWSxHQUFXLGdCQUFRLENBQUMsTUFBTSxDQUFDO0FBR3ZDLHVCQUFlLEdBQUcsTUFBTSxDQUFDO0FBQ3pCLDBCQUFrQixHQUFHLFNBQVMsQ0FBQztBQUcvQix1QkFBZSxHQUFHLE1BQU0sQ0FBQztBQUN6Qix1QkFBZSxHQUFHLE1BQU0sQ0FBQztBQUd6QixvQkFBWSxHQUFHLENBQUMsQ0FBQztBQUNqQixvQkFBWSxHQUFHLENBQUMsQ0FBQztBQUNqQixzQkFBYyxHQUFHLENBQUMsQ0FBQztBQUNuQixxQkFBYSxHQUFHLENBQUMsQ0FBQztBQUdsQixzQ0FBOEIsR0FBRyxJQUFJLENBQUM7QUFHdEMsc0JBQWMsR0FBRyxJQUFJLENBQUM7QUFDdEIsMkJBQW1CLEdBQUcsS0FBSyxDQUFDO0FBRzVCLDBCQUFrQixHQUFhLGdDQUFRLENBQUMsZ0JBQWdCLENBQUM7QUFHekQseUJBQWlCLEdBQUcsSUFBSSxDQUFDO0FBQ3pCLDBCQUFrQixHQUFHLElBQUksQ0FBQzs7Ozs7Ozs7O1VDbEZ2QyxxQ0FBcUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvbGFwcGRlZmluZS50cyIsIndlYnBhY2s6Ly8vd2VicGFjay9ydW50aW1lL2dldEZ1bGxIYXNoIl0sInNvdXJjZXNDb250ZW50IjpbIi8qKlxyXG4gKiDniYjmnYMoYykgTGl2ZTJE5YWs5Y+477yM5L+d55WZ5omA5pyJ5p2D5Yip44CCXHJcbiAqXHJcbiAqIOS9v+eUqOatpOa6kOS7o+eggeWPl0xpdmUyROW8gOaUvui9r+S7tuiuuOWPr+WNj+iurueahOe6puadn++8jFxyXG4gKiDlj6/lnKhodHRwczovL3d3dy5saXZlMmQuY29tL2V1bGEvbGl2ZTJkLW9wZW4tc29mdHdhcmUtbGljZW5zZS1hZ3JlZW1lbnRfZW4uaHRtbOaJvuWIsOOAglxyXG4gKi9cclxuXHJcbmltcG9ydCB7IExvZ0xldmVsIH0gZnJvbSAnQGZyYW1ld29yay9saXZlMmRjdWJpc21mcmFtZXdvcmsnO1xyXG5cclxuLyoqXHJcbiAqIOeUqOS6jlNhbXBsZSBBcHDnmoTluLjph49cclxuICovXHJcblxyXG4vLyDnlLvluIPnmoTlrr3luqblkozpq5jluqblg4/ntKDlgLzvvIzmiJbliqjmgIHlsY/luZXlpKflsI/vvIgnYXV0byfvvInjgIJcclxuZXhwb3J0IGNvbnN0IENhbnZhc1NpemU6IHsgd2lkdGg6IG51bWJlcjsgaGVpZ2h0OiBudW1iZXIgfSB8ICdhdXRvJyA9ICdhdXRvJztcclxuXHJcbi8vIOinhuWbvue8qeaUvlxyXG5leHBvcnQgY29uc3QgVmlld1NjYWxlID0gMS4wO1xyXG5leHBvcnQgY29uc3QgVmlld01heFNjYWxlID0gMi4wO1xyXG5leHBvcnQgY29uc3QgVmlld01pblNjYWxlID0gMC44O1xyXG5cclxuZXhwb3J0IGNvbnN0IFZpZXdMb2dpY2FsTGVmdCA9IC0xLjA7XHJcbmV4cG9ydCBjb25zdCBWaWV3TG9naWNhbFJpZ2h0ID0gMS4wO1xyXG5leHBvcnQgY29uc3QgVmlld0xvZ2ljYWxCb3R0b20gPSAtMS4wO1xyXG5leHBvcnQgY29uc3QgVmlld0xvZ2ljYWxUb3AgPSAxLjA7XHJcblxyXG5leHBvcnQgY29uc3QgVmlld0xvZ2ljYWxNYXhMZWZ0ID0gLTIuMDtcclxuZXhwb3J0IGNvbnN0IFZpZXdMb2dpY2FsTWF4UmlnaHQgPSAyLjA7XHJcbmV4cG9ydCBjb25zdCBWaWV3TG9naWNhbE1heEJvdHRvbSA9IC0yLjA7XHJcbmV4cG9ydCBjb25zdCBWaWV3TG9naWNhbE1heFRvcCA9IDIuMDtcclxuXHJcbi8vIOebuOWvuei3r+W+hFxyXG5leHBvcnQgY29uc3QgUmVzb3VyY2VzUGF0aCA9ICcuLi8uLi9SZXNvdXJjZXMvJztcclxuXHJcbi8vIOaooeWei+iDjOWQjueahOiDjOaZr+WbvuWDj+aWh+S7tlxyXG5leHBvcnQgY29uc3QgQmFja0ltYWdlTmFtZSA9ICdiYWNrX2NsYXNzX25vcm1hbC5wbmcnO1xyXG5cclxuLy8g6b2/6L2uXHJcbmV4cG9ydCBjb25zdCBHZWFySW1hZ2VOYW1lID0gJ2ljb25fZ2Vhci5wbmcnO1xyXG5cclxuLy8g5YWz6Zet5oyJ6ZKuXHJcbmV4cG9ydCBjb25zdCBQb3dlckltYWdlTmFtZSA9ICdDbG9zZU5vcm1hbC5wbmcnO1xyXG5cclxuLy8g5qih5Z6L5a6a5LmJLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbi8vIOaUvue9ruaooeWei+eahOebruW9leWQjeaVsOe7hFxyXG4vLyDnm67lvZXlkI3kuI5tb2RlbDMuanNvbueahOWQjeensOebuOWMuemFjVxyXG5leHBvcnQgY29uc3QgTW9kZWxEaXI6IHN0cmluZ1tdID0gW1xyXG4gICdIYXJ1JyxcclxuICAnSGl5b3JpJyxcclxuICAnTWFyaycsXHJcbiAgJ05hdG9yaScsXHJcbiAgJ1JpY2UnLFxyXG4gICdNYW8nXHJcbl07XHJcbmV4cG9ydCBjb25zdCBNb2RlbERpclNpemU6IG51bWJlciA9IE1vZGVsRGlyLmxlbmd0aDtcclxuXHJcbi8vIOWklumDqOWumuS5ieaWh+S7tu+8iGpzb27vvInljLnphY1cclxuZXhwb3J0IGNvbnN0IE1vdGlvbkdyb3VwSWRsZSA9ICdJZGxlJzsgLy8g56m66ZeyXHJcbmV4cG9ydCBjb25zdCBNb3Rpb25Hcm91cFRhcEJvZHkgPSAnVGFwQm9keSc7IC8vIOeCueWHu+i6q+S9k1xyXG5cclxuLy8g5aSW6YOo5a6a5LmJ5paH5Lu277yIanNvbu+8ieWMuemFjVxyXG5leHBvcnQgY29uc3QgSGl0QXJlYU5hbWVIZWFkID0gJ0hlYWQnO1xyXG5leHBvcnQgY29uc3QgSGl0QXJlYU5hbWVCb2R5ID0gJ0JvZHknO1xyXG5cclxuLy8g5Yqo5L2c55qE5LyY5YWI57qn5bi45pWwXHJcbmV4cG9ydCBjb25zdCBQcmlvcml0eU5vbmUgPSAwO1xyXG5leHBvcnQgY29uc3QgUHJpb3JpdHlJZGxlID0gMTtcclxuZXhwb3J0IGNvbnN0IFByaW9yaXR5Tm9ybWFsID0gMjtcclxuZXhwb3J0IGNvbnN0IFByaW9yaXR5Rm9yY2UgPSAzO1xyXG5cclxuLy8gTU9DM+eahOS4gOiHtOaAp+mqjOivgemAiemhuVxyXG5leHBvcnQgY29uc3QgTU9DQ29uc2lzdGVuY3lWYWxpZGF0aW9uRW5hYmxlID0gdHJ1ZTtcclxuXHJcbi8vIOiwg+ivleeUqOaXpeW/l+aYvuekuumAiemhuVxyXG5leHBvcnQgY29uc3QgRGVidWdMb2dFbmFibGUgPSB0cnVlO1xyXG5leHBvcnQgY29uc3QgRGVidWdUb3VjaExvZ0VuYWJsZSA9IGZhbHNlO1xyXG5cclxuLy8g5qGG5p626L6T5Ye655qE5pel5b+X57qn5Yir6K6+572uXHJcbmV4cG9ydCBjb25zdCBDdWJpc21Mb2dnaW5nTGV2ZWw6IExvZ0xldmVsID0gTG9nTGV2ZWwuTG9nTGV2ZWxfVmVyYm9zZTtcclxuXHJcbi8vIOm7mOiupOeahOa4suafk+ebruagh+Wkp+Wwj1xyXG5leHBvcnQgY29uc3QgUmVuZGVyVGFyZ2V0V2lkdGggPSAxOTAwO1xyXG5leHBvcnQgY29uc3QgUmVuZGVyVGFyZ2V0SGVpZ2h0ID0gMTAwMDtcclxuIiwiX193ZWJwYWNrX3JlcXVpcmVfXy5oID0gZnVuY3Rpb24oKSB7IHJldHVybiBcIjQwMTAzMGMzOGYyYTc1YjVmYWU4XCI7IH0iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=

@@ -1,13 +1,13 @@
 /**
- * Copyright(c) Live2D Inc. All rights reserved.
+ * 版权(c) Live2D Inc. 保留所有权利。
  *
- * Use of this source code is governed by the Live2D Open Software license
- * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
+ * 使用本源代码受Live2D开放软件许可证的约束，
+ * 该许可证可在https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html找到。
  */
 
 export class TouchManager {
   /**
-   * コンストラクタ
+   * 构造函数
    */
   constructor() {
     this._startX = 0.0;
@@ -91,9 +91,9 @@ export class TouchManager {
   }
 
   /**
-   * タッチ開始時イベント
-   * @param deviceX タッチした画面のxの値
-   * @param deviceY タッチした画面のyの値
+   * 触摸开始事件
+   * @param deviceX 触摸屏幕时的x坐标
+   * @param deviceY 触摸屏幕时的y坐标
    */
   public touchesBegan(deviceX: number, deviceY: number): void {
     this._lastX = deviceX;
@@ -106,9 +106,9 @@ export class TouchManager {
   }
 
   /**
-   * ドラッグ時のイベント
-   * @param deviceX タッチした画面のxの値
-   * @param deviceY タッチした画面のyの値
+   * 拖动事件
+   * @param deviceX 触摸屏幕时的x坐标
+   * @param deviceY 触摸屏幕时的y坐标
    */
   public touchesMoved(deviceX: number, deviceY: number): void {
     this._lastX = deviceX;
@@ -118,8 +118,8 @@ export class TouchManager {
   }
 
   /**
-   * フリックの距離測定
-   * @return フリック距離
+   * 计算滑动距离
+   * @return 滑动距离
    */
   public getFlickDistance(): number {
     return this.calculateDistance(
@@ -131,12 +131,12 @@ export class TouchManager {
   }
 
   /**
-   * 点１から点２への距離を求める
+   * 计算从点1到点2的距离
    *
-   * @param x1 １つ目のタッチした画面のxの値
-   * @param y1 １つ目のタッチした画面のyの値
-   * @param x2 ２つ目のタッチした画面のxの値
-   * @param y2 ２つ目のタッチした画面のyの値
+   * @param x1 第一个触摸屏幕的x坐标
+   * @param y1 第一个触摸屏幕的y坐标
+   * @param x2 第二个触摸屏幕的x坐标
+   * @param y2 第二个触摸屏幕的y坐标
    */
   public calculateDistance(
     x1: number,
@@ -148,13 +148,13 @@ export class TouchManager {
   }
 
   /**
-   * ２つ目の値から、移動量を求める。
-   * 違う方向の場合は移動量０。同じ方向の場合は、絶対値が小さい方の値を参照する。
+   * 从值1到值2计算移动量。
+   * 如果方向不同，则移动量为0。如果方向相同，则参考绝对值较小的值。
    *
-   * @param v1 １つ目の移動量
-   * @param v2 ２つ目の移動量
+   * @param v1 第一个移动量
+   * @param v2 第二个移动量
    *
-   * @return 小さい方の移動量
+   * @return 较小的移动量
    */
   public calculateMovingAmount(v1: number, v2: number): number {
     if (v1 > 0.0 != v2 > 0.0) {
@@ -169,18 +169,18 @@ export class TouchManager {
     );
   }
 
-  _startY: number; // タッチを開始した時のxの値
-  _startX: number; // タッチを開始した時のyの値
-  _lastX: number; // シングルタッチ時のxの値
-  _lastY: number; // シングルタッチ時のyの値
-  _lastX1: number; // ダブルタッチ時の一つ目のxの値
-  _lastY1: number; // ダブルタッチ時の一つ目のyの値
-  _lastX2: number; // ダブルタッチ時の二つ目のxの値
-  _lastY2: number; // ダブルタッチ時の二つ目のyの値
-  _lastTouchDistance: number; // 2本以上でタッチしたときの指の距離
-  _deltaX: number; // 前回の値から今回の値へのxの移動距離。
-  _deltaY: number; // 前回の値から今回の値へのyの移動距離。
-  _scale: number; // このフレームで掛け合わせる拡大率。拡大操作中以外は1。
-  _touchSingle: boolean; // シングルタッチ時はtrue
-  _flipAvailable: boolean; // フリップが有効かどうか
+  _startY: number; // 触摸开始时的x坐标
+  _startX: number; // 触摸开始时的y坐标
+  _lastX: number; // 单点触摸时的x坐标
+  _lastY: number; // 单点触摸时的y坐标
+  _lastX1: number; // 双点触摸时的第一个x坐标
+  _lastY1: number; // 双点触摸时的第一个y坐标
+  _lastX2: number; // 双点触摸时的第二个x坐标
+  _lastY2: number; // 双点触摸时的第二个y坐标
+  _lastTouchDistance: number; // 两个或以上触摸时的手指距离
+  _deltaX: number; // 从上次值到本次值的x移动距离。
+  _deltaY: number; // 从上次值到本次值的y移动距离。
+  _scale: number; // 本帧要应用的缩放比例。在缩放操作中以外的情况下为1。
+  _touchSingle: boolean; // 单点触摸时为true
+  _flipAvailable: boolean; // 是否允许翻转
 }
